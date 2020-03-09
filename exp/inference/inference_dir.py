@@ -186,7 +186,6 @@ if __name__ == '__main__':
     parser.add_argument('--loadmodel', default='', type=str)
     parser.add_argument('--imgs_dir', default='', type=str)
     parser.add_argument('--output_dir', default='', type=str)
-    parser.add_argument('--output_name', default='', type=str)
     parser.add_argument('--use_gpu', default=1, type=int)
     opts = parser.parse_args()
 
