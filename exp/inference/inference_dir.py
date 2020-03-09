@@ -174,7 +174,9 @@ def inference(net, img_path='', output_path='./', output_name='f', use_gpu=True)
 
     parsing_im = Image.fromarray(vis_res[0])
     parsing_im.save(output_path+'/{}.png'.format(output_name))
-    cv2.imwrite(output_path+'/{}_gray.png'.format(output_name), results[0, :, :])
+    
+    #we don't need the gray image
+    #cv2.imwrite(output_path+'/{}_gray.png'.format(output_name), results[0, :, :])
 
     end_time = timeit.default_timer()
     print('time used for the multi-scale image inference' + ' is :' + str(end_time - start_time))
@@ -211,5 +213,5 @@ if __name__ == '__main__':
     for idx, path in enumerate(img_paths):
         filename = os.path.splitext(os.path.basename(path))[0]
         output_name = filename +"_seg"
-        inference(net=net, img_path=path,output_path=opts.output_path , output_name=output_name, use_gpu=use_gpu)
+        inference(net=net, img_path=path, output_path=opts.output_dir , output_name=output_name, use_gpu=use_gpu)
 
